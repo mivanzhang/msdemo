@@ -16,8 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dip"
         android:drawablePadding="24dip"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:textColor="@android:color/white"
         android:textStyle="bold"
         tools:text="Hello World!"/>
 

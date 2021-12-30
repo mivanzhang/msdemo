@@ -1,26 +1,18 @@
 package com.example.msdemo;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.msdemo.recycleview.GalleryLayoutManager;
 import com.example.msdemo.recycleview.MainAdapter;
-import com.example.msdemo.recycleview.ScaleTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -72,7 +64,13 @@ public class MainFragment extends Fragment  {
         final List<String> title = new ArrayList<String>();
         int size = 50;
         for (int i = 0; i < size; i++) {
-            title.add("Hello" + i);
+            title.add("\n\n\nHello" + i+"\n"+
+              "LinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManager"+
+              "LinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManager"+
+              "LinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManager"+
+              "LinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManager"+
+              "LinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManager"+
+              "LinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManagerLinearLayoutManager horizontalLayoutManager");
         }
         LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         MainAdapter horizontalAdapter = new MainAdapter(title);
@@ -88,16 +86,20 @@ public class MainFragment extends Fragment  {
         detailReycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                    int firstItemPosition = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(3));
+                if (recyclerView.getScrollState() != RecyclerView.SCROLL_STATE_IDLE) {
+                    int firstItemPosition = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
                     bannerReycleView.scrollToPosition(firstItemPosition);
+                }
             }
         });
 
         bannerReycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                    int firstItemPosition = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(3));
+                if (recyclerView.getScrollState() != RecyclerView.SCROLL_STATE_IDLE) {
+                    int firstItemPosition = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
                     detailReycleView.scrollToPosition(firstItemPosition);
+                }
             }
         });
         horizontalAdapter.setOnItemClickListener(new MainAdapter.OnItemClickListener() {

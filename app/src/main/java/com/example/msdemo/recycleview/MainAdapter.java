@@ -58,7 +58,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycle_tv, parent, false);
         }
         v.setOnClickListener(this);
-        v.getLayoutParams().width=parent.getWidth()/5;
         return new ViewHolder(v);
     }
 
@@ -71,8 +70,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
         if (mType == VIEW_TYPE_TEXT) {
             holder.text.setText(item);
         } else {
-            holder.text.setText("HelloWorld：" + item);
+            holder.text.setText("H" + position);
         }
+        Thread.currentThread().getStackTrace()
         holder.itemView.setTag(position);
     }
 
