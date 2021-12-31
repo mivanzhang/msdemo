@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.msdemo.recycleview.MainAdapter;
+import com.example.msdemo.recycleview.StartSnapHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 /**
  * Created by chensuilun on 2017/3/23.
@@ -76,6 +79,8 @@ public class MainFragment extends Fragment  {
         MainAdapter horizontalAdapter = new MainAdapter(title);
         bannerReycleView.setLayoutManager(horizontalLayoutManager);
         bannerReycleView.setAdapter(horizontalAdapter);
+        SnapHelper snapHelper = new StartSnapHelper();
+        snapHelper.attachToRecyclerView(bannerReycleView);
 
         LinearLayoutManager verticalLayoutManager = new LinearLayoutManager(getContext());
         MainAdapter verticalAdapter = new MainAdapter(title, MainAdapter.VIEW_TYPE_TEXT);

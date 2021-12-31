@@ -72,7 +72,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
         } else {
             holder.text.setText("H" + position);
         }
-        Thread.currentThread().getStackTrace()
         holder.itemView.setTag(position);
     }
 
