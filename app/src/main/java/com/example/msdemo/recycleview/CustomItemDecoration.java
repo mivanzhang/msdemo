@@ -45,10 +45,10 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
         int itemCount = parent.getAdapter().getItemCount();
         int leftMagin = 0;
         int rightMagin = 0;
-        if (position == 0) {
+        if (position==0) {
             if (mLeftPageVisibleWidth < dpToPx(mPageMargin)) {
                 leftMagin = mLeftPageVisibleWidth;
-                rightMagin = mLeftPageVisibleWidth;
+                rightMagin = dpToPx(mPageMargin);
             } else {
                 leftMagin = mLeftPageVisibleWidth;
                 rightMagin = dpToPx(mPageMargin);

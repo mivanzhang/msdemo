@@ -270,9 +270,11 @@ public class MainFragment extends Fragment  {
         bannerReycleView.setAdapter(horizontalAdapter);
         new LinearSnapHelper().attachToRecyclerView(bannerReycleView);
         bannerReycleView.addItemDecoration(new CustomItemDecoration());
+
+
+
         LinearLayoutManager verticalLayoutManager = new LinearLayoutManager(getContext());
         MainAdapter verticalAdapter = new MainAdapter(title, MainAdapter.VIEW_TYPE_TEXT,getActivity().getApplicationContext());
-
         detailReycleView.setLayoutManager(verticalLayoutManager);
         detailReycleView.setAdapter(verticalAdapter);
         new PagerSnapHelper().attachToRecyclerView(detailReycleView);
